@@ -19,7 +19,7 @@ add the following dependency to your `pom.xml`:
 ```
 <dependency>
     <groupId>com.vaadin</groupId>
-    <artifactId>vaadin-spreadsheet-flow</artifactId>
+    <artifactId>vaadin-spreadsheet-flow-vcf</artifactId>
     <version>${component.version}</version>
 </dependency>
 ```
