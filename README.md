@@ -12,6 +12,10 @@ The VCF version of Vaadin Spreadsheet currently provides pre-release features:
 * Major performance improvement when using autofilter/SpreadsheetFilterTable on large
   data sets.
 
+## Version history
+
+Version 1.0 built on flow-components 24.7.1.
+
 ## Using the component in a Flow application
 
 To use the component in an application using maven,

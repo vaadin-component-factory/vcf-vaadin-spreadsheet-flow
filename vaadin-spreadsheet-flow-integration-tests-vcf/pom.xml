@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-spreadsheet-flow-parent-vcf</artifactId>
-        <version>24.8-SNAPSHOT</version>
+        <version>0.9.0</version>
     </parent>
     <artifactId>vaadin-spreadsheet-flow-integration-tests-vcf</artifactId>
     <packaging>war</packaging>
@@ -40,33 +40,33 @@
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-button-flow</artifactId>
-            <version>${project.version}</version>
+            <version>${vaadin.flow.version}</version>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-checkbox-flow</artifactId>
-            <version>${project.version}</version>
+            <version>${vaadin.flow.version}</version>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-combo-box-flow</artifactId>
-            <version>${project.version}</version>
+            <version>${vaadin.flow.version}</version>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-combo-box-testbench</artifactId>
-            <version>${project.version}</version>
+            <version>${vaadin.flow.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-custom-field-flow</artifactId>
-            <version>${project.version}</version>
+            <version>${vaadin.flow.version}</version>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-date-picker-flow</artifactId>
-            <version>${project.version}</version>
+            <version>${vaadin.flow.version}</version>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
@@ -75,37 +75,38 @@
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-dialog-flow</artifactId>
-            <version>${project.version}</version>
+            <version>${vaadin.flow.version}</version>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-flow-components-test-util</artifactId>
-            <version>${project.version}</version>
+            <version>${vaadin.flow.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-icons-flow</artifactId>
-            <version>${project.version}</version>
+            <version>${vaadin.flow.version}</version>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-lumo-theme</artifactId>
+            <version>${vaadin.flow.version}</version>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-notification-flow</artifactId>
-            <version>${project.version}</version>
+            <version>${vaadin.flow.version}</version>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-ordered-layout-flow</artifactId>
-            <version>${project.version}</version>
+            <version>${vaadin.flow.version}</version>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-select-flow</artifactId>
-            <version>${project.version}</version>
+            <version>${vaadin.flow.version}</version>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
@@ -121,29 +122,29 @@
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-tabs-flow</artifactId>
-            <version>${project.version}</version>
+            <version>${vaadin.flow.version}</version>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-tabs-testbench</artifactId>
-            <version>${project.version}</version>
+            <version>${vaadin.flow.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-text-field-flow</artifactId>
-            <version>${project.version}</version>
+            <version>${vaadin.flow.version}</version>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-text-field-testbench</artifactId>
-            <version>${project.version}</version>
+            <version>${vaadin.flow.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-upload-flow</artifactId>
-            <version>${project.version}</version>
+            <version>${vaadin.flow.version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -184,6 +185,7 @@
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.7.0</version>
                 <configuration>
                     <skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
                 </configuration>

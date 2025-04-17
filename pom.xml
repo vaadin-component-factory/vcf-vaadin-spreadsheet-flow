@@ -4,10 +4,10 @@
     <parent>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-flow-components</artifactId>
-        <version>24.7.1</version>
+        <version>24.7.1</version>  <!-- must match vaadin.flow.version in properties, below -->
     </parent>
     <artifactId>vaadin-spreadsheet-flow-parent-vcf</artifactId>
-    <version>24.8-SNAPSHOT</version>
+    <version>0.9.0</version>
     <packaging>pom</packaging>
     <name>Vaadin Spreadsheet Parent (VCF)</name>
     <description>Vaadin Spreadsheet Parent (VCF version)</description>
@@ -17,14 +17,25 @@
             <url>https://vaadin.com/commercial-license-and-service-terms</url>
         </license>
     </licenses>
-    <modules>
-        <module>vaadin-spreadsheet-flow-vcf</module>
-        <module>vaadin-spreadsheet-testbench-vcf</module>
-    </modules>
+    <distributionManagement>
+        <repository>
+            <id>vaadin-addons</id>
+            <name>Vaadin add-ons repository</name>
+            <url>http://tools.vaadin.com/nexus/content/repositories/vaadin-addons</url>
+        </repository>
+    </distributionManagement>
+
     <properties>
         <spotless.licence-header>${maven.multiModuleProjectDirectory}/scripts/templates/vaadin-commercial-license-header.txt</spotless.licence-header>
+        <vaadin.flow.version>24.7.1</vaadin.flow.version>
+        <vaadin.framework.version>8.27.7</vaadin.framework.version> <!-- for clientside -->
     </properties>
-    <dependencies/>
+
+    <modules>
+        <module>vaadin-spreadsheet-flow-client-vcf</module>
+        <module>vaadin-spreadsheet-flow-vcf</module>
+    </modules>
+
     <profiles>
         <profile>
             <id>default</id>
