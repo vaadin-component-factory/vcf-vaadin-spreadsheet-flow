@@ -6,6 +6,7 @@
         <artifactId>vcf-vaadin-spreadsheet-flow-parent</artifactId>
         <version>0.9.0</version>
     </parent>
+    <groupId>org.vaadin.addons</groupId>
     <artifactId>vcf-vaadin-spreadsheet-flow</artifactId>
     <packaging>jar</packaging>
     <name>VCF Vaadin Spreadsheet</name>
