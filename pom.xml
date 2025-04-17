@@ -10,8 +10,8 @@
     <artifactId>vcf-vaadin-spreadsheet-flow-parent</artifactId>
     <version>0.9.0</version>
     <packaging>pom</packaging>
-    <name>Vaadin Spreadsheet Parent (VCF)</name>
-    <description>Vaadin Spreadsheet Parent (VCF version)</description>
+    <name>VCF Vaadin Spreadsheet Parent</name>
+    <description>VCF modified Vaadin Spreadsheet Parent</description>
     <licenses>
         <license>
             <name>Vaadin Commercial License and Service Terms</name>

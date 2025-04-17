@@ -7,8 +7,8 @@
         <version>0.9.0</version>
     </parent>
     <artifactId>vcf-vaadin-spreadsheet-flow-client</artifactId>
-    <name>Vaadin Spreadsheet Client (VCF)</name>
-    <description>Vaadin Spreadsheet Client (VCF version)</description>
+    <name>VCF Vaadin Spreadsheet Client</name>
+    <description>VCF modified Vaadin Spreadsheet Client</description>
     <packaging>jar</packaging>
 
     <properties>

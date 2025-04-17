@@ -8,8 +8,8 @@
     </parent>
     <artifactId>vcf-vaadin-spreadsheet-flow-integration-tests</artifactId>
     <packaging>war</packaging>
-    <name>Vaadin Spreadsheet Integration Tests (VCF)</name>
-    <description>Vaadin Spreadsheet Integration Tests (VCF version)</description>
+    <name>VCF Vaadin Spreadsheet Integration Tests</name>
+    <description>VCF modified Vaadin Spreadsheet Integration Tests</description>
     <dependencies>
         <dependency>
             <groupId>com.vaadin</groupId>
