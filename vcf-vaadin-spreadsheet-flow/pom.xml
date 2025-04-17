@@ -2,17 +2,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.vaadin</groupId>
-        <artifactId>vaadin-spreadsheet-flow-parent-vcf</artifactId>
+        <groupId>com.vaadin.componentfactory</groupId>
+        <artifactId>vcf-vaadin-spreadsheet-flow-parent</artifactId>
         <version>0.9.0</version>
     </parent>
-    <artifactId>vaadin-spreadsheet-flow-vcf</artifactId>
+    <artifactId>vcf-vaadin-spreadsheet-flow</artifactId>
     <packaging>jar</packaging>
     <name>Vaadin Spreadsheet (VCF)</name>
     <description>Vaadin Spreadsheet (VCF version)</description>
     <properties>
         <osgi.bundle.license>https://vaadin.com/commercial-license-and-service-terms</osgi.bundle.license>
-        <cvdlName>vaadin-spreadsheet-flow-vcf</cvdlName>
+        <cvdlName>vcf-vaadin-spreadsheet-flow</cvdlName>
     </properties>
     <dependencies>
         <dependency>
@@ -58,8 +58,8 @@
             <version>${vaadin.flow.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-spreadsheet-flow-client-vcf</artifactId>
+            <groupId>com.vaadin.componentfactory</groupId>
+            <artifactId>vcf-vaadin-spreadsheet-flow-client</artifactId>
             <version>${project.version}</version>
             <scope>provided</scope>
         </dependency>
