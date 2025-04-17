@@ -35,3 +35,4 @@ vaadin-spreadsheet/errors
 *styles.css
 
 spreadsheet-export.js
+vcf-vaadin-spreadsheet-flow-integration-tests/.vaadin-node-tasks.lock
