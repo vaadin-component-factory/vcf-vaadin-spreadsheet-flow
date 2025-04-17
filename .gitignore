@@ -29,6 +29,7 @@ error-screenshots
 **/frontend/generated
 **/frontend/index.html
 **/pom.xml.versionsBackup
+**/.vaadin-node-tasks.lock
 
 vaadin-spreadsheet/errors
 */styles.css
