@@ -22,7 +22,7 @@ To use the component in an application using maven,
 add the following dependency to your `pom.xml`:
 ```
 <dependency>
-    <groupId>com.vaadin.componentfactory</groupId>
+    <groupId>org.vaadin.addons</groupId>
     <artifactId>vcf-vaadin-spreadsheet-flow</artifactId>
     <version>${component.version}</version>
 </dependency>
