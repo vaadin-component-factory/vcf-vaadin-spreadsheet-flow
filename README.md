@@ -28,6 +28,19 @@ add the following dependency to your `pom.xml`:
 </dependency>
 ```
 
+## Build instructions
+
+This component has been repackaged from a multi-module project to a single-module project.
+Consequently, the build is no longer fully automated.
+
+Short version:
+* Clean the project using `mvn clean`
+* Build the client side of the component: `cd client` and `mvn package` - the client side build
+  process copies the built javascript file to the server-side resource directory
+* Finally, build the server-side component: `mvn -DskipTests package`
+
+To run integration tets, change to the `integration-tests` directory and run `mvn verify`
+
 ## License
 
 This component is distributed under [Vaadin Commercial License and Service Terms](https://vaadin.com/commercial-license-and-service-terms).

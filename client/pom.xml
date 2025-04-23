@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    
     <parent>
-        <groupId>org.vaadin.addons</groupId>
-        <artifactId>vcf-vaadin-spreadsheet-flow-parent</artifactId>
-        <version>0.9.0</version>
+        <groupId>com.vaadin</groupId>
+        <artifactId>vaadin-flow-components</artifactId>
+        <version>24.7.1</version>
     </parent>
+
     <groupId>org.vaadin.addons</groupId>
     <artifactId>vcf-vaadin-spreadsheet-flow-client</artifactId>
+    <version>0.9.0</version>
+
     <name>VCF Vaadin Spreadsheet Client</name>
     <description>VCF modified Vaadin Spreadsheet Client</description>
     <packaging>jar</packaging>
 
+    <licenses>
+        <license>
+            <name>Vaadin Commercial License and Service Terms</name>
+            <url>https://vaadin.com/commercial-license-and-service-terms</url>
+        </license>
+    </licenses>
+
     <properties>
+        <vaadin.framework.version>8.27.7</vaadin.framework.version>
+
         <!-- OBF is enabled in CI when releasing for production -->
         <gwt.style>pretty</gwt.style>
         <gwt.draft.compile>false</gwt.draft.compile>
@@ -180,7 +193,7 @@
                         <phase>package</phase>
                         <configuration>
                             <target>
-                                <copy file="${project.build.directory}/${project.build.finalName}/${gwt.name}/${gwt.name}.cache.js" tofile="${basedir}/../vcf-vaadin-spreadsheet-flow/src/main/resources/META-INF/resources/frontend/vaadin-spreadsheet/spreadsheet-export.js"/>
+                                <copy file="${project.build.directory}/${project.build.finalName}/${gwt.name}/${gwt.name}.cache.js" tofile="${basedir}/../src/main/resources/META-INF/resources/frontend/vaadin-spreadsheet/spreadsheet-export.js"/>
                             </target>
                         </configuration>
                     </execution>

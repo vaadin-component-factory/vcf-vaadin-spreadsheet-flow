@@ -1,42 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
-        <groupId>org.vaadin.addons</groupId>
-        <artifactId>vcf-vaadin-spreadsheet-flow-parent</artifactId>
-        <version>0.9.0</version>
+        <groupId>com.vaadin</groupId>
+        <artifactId>vaadin-flow-components</artifactId>
+        <version>24.7.1</version>  <!-- must match vaadin.flow.version in properties, below -->
     </parent>
+
     <groupId>org.vaadin.addons</groupId>
     <artifactId>vcf-vaadin-spreadsheet-flow-integration-tests</artifactId>
+    <version>0.9.0</version>
     <packaging>war</packaging>
     <name>VCF Vaadin Spreadsheet Integration Tests</name>
     <description>VCF modified Vaadin Spreadsheet Integration Tests</description>
+
+    <properties>
+        <osgi.bundle.license>https://vaadin.com/commercial-license-and-service-terms</osgi.bundle.license>
+        <cvdlName>vcf-vaadin-spreadsheet-flow</cvdlName>
+        <spotless.licence-header>${maven.multiModuleProjectDirectory}/scripts/templates/vaadin-commercial-license-header.txt</spotless.licence-header>
+        <vaadin.flow.version>24.7.1</vaadin.flow.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>flow-client</artifactId>
+            <version>${vaadin.flow.version}</version>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>flow-data</artifactId>
+            <version>${vaadin.flow.version}</version>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>flow-html-components</artifactId>
+            <version>${vaadin.flow.version}</version>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>flow-html-components-testbench</artifactId>
-            <version>${flow.version}</version>
+            <version>${vaadin.flow.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>flow-lit-template</artifactId>
+            <version>${vaadin.flow.version}</version>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>flow-polymer-template</artifactId>
+            <version>${vaadin.flow.version}</version>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
@@ -72,6 +88,7 @@
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-dev-server</artifactId>
+            <version>${vaadin.flow.version}</version>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>

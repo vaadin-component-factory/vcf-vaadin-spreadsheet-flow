@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-flow-components</artifactId>
         <version>24.7.1</version>  <!-- must match vaadin.flow.version in properties, below -->
     </parent>
+
     <groupId>org.vaadin.addons</groupId>
-    <artifactId>vcf-vaadin-spreadsheet-flow-parent</artifactId>
+    <artifactId>vcf-vaadin-spreadsheet-flow</artifactId>
     <version>0.9.0</version>
-    <packaging>pom</packaging>
-    <name>VCF Vaadin Spreadsheet Parent</name>
-    <description>VCF modified Vaadin Spreadsheet Parent</description>
+
+    <name>VCF Vaadin Spreadsheet</name>
+    <description>VCF modified Vaadin Spreadsheet</description>
+    <packaging>jar</packaging>
+
     <licenses>
         <license>
             <name>Vaadin Commercial License and Service Terms</name>
@@ -27,38 +31,206 @@
     </distributionManagement>
 
     <properties>
+        <osgi.bundle.license>https://vaadin.com/commercial-license-and-service-terms</osgi.bundle.license>
+        <cvdlName>vcf-vaadin-spreadsheet-flow</cvdlName>
         <spotless.licence-header>${maven.multiModuleProjectDirectory}/scripts/templates/vaadin-commercial-license-header.txt</spotless.licence-header>
         <vaadin.flow.version>24.7.1</vaadin.flow.version>
-        <vaadin.framework.version>8.27.7</vaadin.framework.version> <!-- for clientside -->
     </properties>
 
-    <modules>
-        <module>vcf-vaadin-spreadsheet-flow-client</module>
-        <module>vcf-vaadin-spreadsheet-flow</module>
-    </modules>
-
+    <dependencies>
+        <dependency>
+            <groupId>com.github.javaparser</groupId>
+            <artifactId>javaparser-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>flow-html-components</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>flow-server</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>license-checker</artifactId>
+            <version>1.13.4</version>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-button-flow</artifactId>
+            <version>${vaadin.flow.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-charts-flow</artifactId>
+            <version>${vaadin.flow.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-checkbox-flow</artifactId>
+            <version>${vaadin.flow.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-icons-flow</artifactId>
+            <version>${vaadin.flow.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-ordered-layout-flow</artifactId>
+            <version>${vaadin.flow.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.poi</groupId>
+                    <artifactId>poi-ooxml-lite</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.github.javaparser</groupId>
+                    <artifactId>javaparser-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml-full</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-scratchpad</artifactId>
+        </dependency>
+    </dependencies>
+    <build>
+        <resources>
+            <resource>
+                <filtering>true</filtering>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>biz.aQute.bnd</groupId>
+                <artifactId>bnd-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                        </manifest>
+                        <manifestEntries>
+                            <Vaadin-Package-Version>1</Vaadin-Package-Version>
+                            <Implementation-Vendor>Vaadin Component Factory</Implementation-Vendor>
+                        </manifestEntries>
+                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <profiles>
         <profile>
-            <id>default</id>
+            <id>attach-docs</id>
             <activation>
                 <property>
-                    <name>!release</name>
+                    <name>with-docs</name>
                 </property>
             </activation>
-            <modules>
-                <module>vcf-vaadin-spreadsheet-flow-integration-tests</module>
-            </modules>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>build-helper-maven-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
         <profile>
-            <id>gwt</id>
-            <activation>
-                <property>
-                    <name>!skipGwt</name>
-                </property>
-            </activation>
-            <modules>
-                <module>vcf-vaadin-spreadsheet-flow-client</module>
-            </modules>
+            <id>directory</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                        <configuration>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <descriptors>
+                                <descriptor>assembly/assembly.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                                <phase>package</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>3.3.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <quiet>true</quiet>
+                            <additionalJOption>-Xdoclint:none</additionalJOption>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
     </profiles>
 </project>
