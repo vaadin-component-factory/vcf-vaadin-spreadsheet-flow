@@ -2,14 +2,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <!-- This makes the project malformed, but is required to make it compile for now -->
     <parent>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-flow-components</artifactId>
-        <version>24.7.1</version>  <!-- must match vaadin.flow.version in properties, below -->
+        <version>24.7.1</version>
     </parent>
 
-    <groupId>org.vaadin.addons</groupId>
-    <artifactId>vcf-vaadin-spreadsheet-flow-integration-tests</artifactId>
+    <groupId>org.vaadin.addons.componentfactory</groupId>
+    <artifactId>vcf-spreadsheet-flow-integration-tests</artifactId>
     <version>0.9.0</version>
     <packaging>war</packaging>
     <name>VCF Vaadin Spreadsheet Integration Tests</name>
@@ -20,7 +21,23 @@
         <cvdlName>vcf-vaadin-spreadsheet-flow</cvdlName>
         <spotless.licence-header>${maven.multiModuleProjectDirectory}/scripts/templates/vaadin-commercial-license-header.txt</spotless.licence-header>
         <vaadin.flow.version>24.7.1</vaadin.flow.version>
+
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.release>17</maven.compiler.release>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.vaadin</groupId>
+                <artifactId>vaadin-bom</artifactId>
+                <type>pom</type>
+                <scope>import</scope>
+                <version>${vaadin.flow.version}</version>
+            </dependency>
+        </dependencies>        
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
@@ -127,8 +144,8 @@
             <version>${vaadin.flow.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.vaadin.addons</groupId>
-            <artifactId>vcf-vaadin-spreadsheet-flow</artifactId>
+            <groupId>org.vaadin.addons.componentfactory</groupId>
+            <artifactId>vcf-spreadsheet-flow</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
